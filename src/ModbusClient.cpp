@@ -383,11 +383,11 @@ long ModbusClient::read()
   long result = -1;
 
   switch (_type) {
+  /*
+   * Stuff all values in to uint8_t
+   */
     case COILS:
     case DISCRETE_INPUTS:
-      result = ((uint8_t*)_values)[_read];
-      break;
-
     case HOLDING_REGISTERS:
     case INPUT_REGISTERS:
       result = ((uint16_t*)_values)[_read];
